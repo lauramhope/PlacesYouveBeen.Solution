@@ -46,5 +46,13 @@ namespace PlacesYouveBeen.Tests
       newPlace.TraveledWith = traveledWith;
       Assert.AreEqual(newPlace.TraveledWith, traveledWith);
     }
+
+    [TestMethod]
+    public void GetJournalEntry_ReturnsJournalEntry_String()
+    {
+      string journalEntry = "It was fun!";
+      newPlace.JournalEntry = journalEntry;
+      Assert.AreEqual(newPlace.JournalEntry, journalEntry); 
+    }
   }
 }
