@@ -10,11 +10,30 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <h1>My List of Places Details: </h1>
+    @using PlacesYouveBeen.Models;
 
-    <h2>@Model.CityName</h2>
+    <h1>Places Webpage</h1>
+    <p>List of places you've been to:</p>
+    @if (Model.Count == 0)
+    {
+      <p>There are no places to display</p>
+    }
+    <ol>
+      @foreach (Place place in Model)
+      {
+        <li>@place.CityName</li>
+        <ul>
+          <li>@place.Picture</li>
+          <li>@place.HowLongToStay</li>
+          <li>@place.TraveledWith</li>
+          <li>@place.JournalEntry</li>
+        </ul>
+        
+      //<!-- string howLongToStay, string traveledWith, string journalEntry -->
+      }
+    </ol>
 
     <a href='/places/new'>Add another place</a>
-    <a href='/places'>View all places</a>
+    <a href='/places'>Go back to home page</a>
   </body>
 </html>
