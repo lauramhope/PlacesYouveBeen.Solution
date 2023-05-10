@@ -32,7 +32,7 @@ namespace PlacesYouveBeen.Controllers
       Place.ClearAll();
       return View();
     }
-
+//'/places/@place.Id'
     [HttpGet("/places/{id}")]
     public ActionResult Show(int id)
     {

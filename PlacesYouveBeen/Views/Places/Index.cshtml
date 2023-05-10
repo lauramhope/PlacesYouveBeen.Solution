@@ -9,8 +9,24 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <h1>Wecome to the Travel Log</h1>
+  @using PlacesYouveBeen.Models;
+  <h1>Wecome to the Travel Log</h1>
+    @if (Model.Count == 0)
+    {
+      <p>There are no Places yet</p>
+    }
+    <ul>
+    @foreach (Place place in Model)
+      {
+        <li><a href='/places/@place.Id'>@place.CityName</a></li>
+        //<a herf='/Places/@places.id'>
+      }
+    </ul>
     <a href="/places/new">Add another place</a>
     <br>
-    <a href="/places/show">Go to list</a>
+
+    <form action="/places/delete" method="post">
+      <button type="submit" name="button">Clear Places</button>
+    </form>
+    <!-- <a href="/places/show">Go to list</a> -->
   </body>
